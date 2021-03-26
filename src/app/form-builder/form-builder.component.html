@@ -1,0 +1,6 @@
+
+<li *ngFor="let item of inputControls" class="list-group-item">
+	<input *ngIf="!item.text" [type]="item.inputType" [placeholder]="item.placeholder" /> 
+    <label *ngIf="item.displayText">{{item.title}}</label>
+    <label *ngIf="item.text">label</label>
+</li> 
