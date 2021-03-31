@@ -34,7 +34,7 @@
 			</div>
 			<div class="card-block scroll-list">
 				<div #formData class="list-group">
-					<li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of vegetables ; let i = index" [dragClass]="'active'"
+					<li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of controls ; let i = index" [dragClass]="'active'"
 					 [dragData]="item" [dragScope]="item.type" [dragEnabled]="dragEnabled" >
 						{{item.name}}
 					</li>
@@ -75,4 +75,4 @@
 	</div>
 </div>
 
-<app-form-builder [inputControls]="passedItems"></app-form-builder>
+<app-form-builder [inputControls]="droppedItems"></app-form-builder>

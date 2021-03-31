@@ -11,20 +11,20 @@ export class AppComponent {
 
   modalPopupObject: any;
   display: boolean = false;
-  vegetables = [
-    { name: 'Label', type: 'label', inputType: 'label',text:'label'},
+  controls = [
+    // { name: 'Label', type: 'label', inputType: 'label',text:'label'},
     { name: 'text', type: 'input-text', inputType: 'text', placeholder: '' ,value:''},
     { name: 'checkbox', type: 'input-check', inputType: 'checkbox', placeholder:'', displayText: 'Check box',text:''},
     // { name: 'dropdown', type: 'input-dropdown', inputType: 'dropdown', placeholder:'', dropdown: 'Drop down' }
   ];
 
-  droppedVegetables = [];
+  
   droppedItems = [];
-  passedItems=[];
+  //passedItems=[];
   dragEnabled = true;
   htmlText: any;
   test: string = '';
-  currentDraggedItem: any[];
+  currentDraggedItem: any;
 i=0;
   constructor() {
     this.modalPopupObject = {};
@@ -73,17 +73,19 @@ i=0;
   }
 
   updateDroppedItem(e: any): void {
+    //debugger;
   //  console.log(typeof this.currentDraggedItem);
   //   let p=this.currentDraggedItem.filter(function(item){
   //      console.log('hy'+item);
   //       return item.idd==e.id;
   //   });
-     console.log(this.currentDraggedItem.dragData);
+   
     this.currentDraggedItem.dragData.placeholder = e.placeholder;
     this.currentDraggedItem.dragData.value = e.value;
     this.currentDraggedItem.dragData.title = e.title;
-    this.droppedItems.push(this.currentDraggedItem.dragData);
-    this.passedItems.push(this.currentDraggedItem.dragData);
+    //console.log(this.currentDraggedItem.dragData);
+    this.droppedItems.push({...this.currentDraggedItem.dragData});
+    //this.passedItems.push({...this.currentDraggedItem.dragData});
     //console.log(this.passedItems);
     this.updateHtmlCode();
     this.test += this.renderHtmlCode(this.currentDraggedItem.dragData);
