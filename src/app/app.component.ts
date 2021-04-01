@@ -12,10 +12,11 @@ export class AppComponent {
   modalPopupObject: any;
   display: boolean = false;
   controls = [
-    // { name: 'Label', type: 'label', inputType: 'label',text:'label'},
+    { name: 'label', type: 'label', inputType: 'label',text:'label'},
     { name: 'text', type: 'input-text', inputType: 'text', placeholder: '' ,value:''},
-    { name: 'checkbox', type: 'input-check', inputType: 'checkbox', placeholder:'', displayText: 'Check box',text:''},
-    // { name: 'dropdown', type: 'input-dropdown', inputType: 'dropdown', placeholder:'', dropdown: 'Drop down' }
+    { name: 'date', type: 'input-date', inputType: 'date', placeholder: '' ,value:''},
+    { name: 'checkbox', type: 'input-check', inputType: 'checkbox',  displayText: 'Check box',text:''},
+    { name: 'dropdown', type: 'input-dropdown', inputType: 'dropdown',  options: []  }
   ];
 
   

@@ -53,16 +53,20 @@
 	</div>
 
 	<div class="col-sm-5">
-		<div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['label', 'input-text','input-check']"
+		<div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['label', 'input-text','input-check','input-dropdown','input-date']"
 		 [dragHintClass]="'drag-hint'" (onDrop)="onAnyDrop($event)">
 			<div class="card-header card-inverse card-primary">Drop the controls on the form</div>
 			<div class="card-block scroll-list" id="formContent">
 				<div class="row">
 					<div class="col-sm-3">
 						<li *ngFor="let item of droppedItems ; let i = index" class="list-group-item">
-							<input [type]="item.inputType" id="{{ 'control_' + i }}" [placeholder]="item.placeholder" *ngIf="item.inputType !== 'label'">
+							<input [type]="item.inputType"  [placeholder]="item.placeholder" *ngIf="item.inputType !== 'label'">
+
               <label *ngIf="item.inputType === 'label'"></label>
                <label *ngIf="item.displayText"></label>
+			   <select *ngIf="item.inputType === 'dropdown'">
+				   <option *ngFor="let option of item.options" [value]="option.value">{{option.text}}</option>
+			   </select>
 						</li>						
 					</div>
           <div [innerHTML]="test"></div>
